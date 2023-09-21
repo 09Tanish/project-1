@@ -3,7 +3,7 @@ class CoffeeMachine:
         self.water_level = 1000  # Initial water level in milliliters
     
     def check_resources(self, water_needed):
-        if self.water_level >= water_needed:
+        if self.water_level >= watar_needed:
             return True
         else:
             return False
