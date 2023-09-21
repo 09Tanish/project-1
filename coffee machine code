@@ -1,0 +1,55 @@
+class CoffeeMachine:
+    def __init__(self):
+        self.water_level = 1000  # Initial water level in milliliters
+    
+    def check_resources(self, water_needed):
+        if self.water_level >= water_needed:
+            return True
+        else:
+            return False
+    
+    def brew_coffee(self, coffee_type):
+        if coffee_type == "espresso":
+            water_needed = 50
+        elif coffee_type == "latte":
+            water_needed = 200
+        elif coffee_type == "cappuccino":
+            water_needed = 150
+        else:
+            print("Invalid coffee type.")
+            return
+        
+        if self.check_resources(water_needed):
+            self.water_level -= water_needed
+            print(f"Brewing a {coffee_type}...")
+            print("Your coffee is ready! Enjoy!")
+        else:
+            print("Not enough water. Please refill the water tank.")
+​
+def main():
+    coffee_machine = CoffeeMachine()
+    
+    while True:
+        print("\nMenu:")
+        print("1. Brew Espresso")
+        print("2. Brew Latte")
+        print("3. Brew Cappuccino")
+        print("4. Exit")
+        
+        choice = input("Select an option: ")
+        
+        if choice == "1":
+            coffee_machine.brew_coffee("espresso")
+        elif choice == "2":
+            coffee_machine.brew_coffee("latte")
+        elif choice == "3":
+            coffee_machine.brew_coffee("cappuccino")
+        elif choice == "4":
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+​
+if __name__ == "__main__":
+    main()
+​
